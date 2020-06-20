@@ -1,10 +1,15 @@
 language: python
 services:
-- docker
+  - docker
 install:
-- make deps
+  - make deps
 script:
-- make test
-- make lint
-- make docker_build
-- make docker_push
+  - make test
+  - make lint
+  - make docker_build
+  - make docker_push
+
+deploy:
+  provider: heroku
+  app: NAZWA TWOJEJ APLIKACJI
+  api_key: ${HEROKU_API_KEY}
